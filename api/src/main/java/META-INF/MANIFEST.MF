@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: kumuluzee-json-b-yasson-3.5.0.jar jaxb-api-2.3.1.jar jersey-
+ entity-filtering-2.28.jar jersey-cdi1x-ban-custom-hk2-binding-2.28.jar 
+ kumuluzee-jpa-common-3.5.0.jar asm-7.0.jar jakarta.persistence-2.2.2.ja
+ r jetty-xml-9.4.15.v20190215.jar aopalliance-repackaged-2.5.0.jar alpn-
+ api-1.1.3.v20160715.jar jackson-module-jaxb-annotations-2.9.9.jar slf4j
+ -api-1.7.25.jar http2-server-9.4.15.v20190215.jar jetty-http-9.4.15.v20
+ 190215.jar jetty-plus-9.4.15.v20190215.jar weld-web-3.1.1.Final.jar jav
+ ax.json-1.1.4.jar hk2-utils-2.5.0.jar jersey-media-json-binding-2.28.ja
+ r postgresql-42.2.8.jar snakeyaml-1.24.jar activation-1.1.1.jar osgi-re
+ source-locator-1.0.1.jar jersey-common-2.28.jar jakarta.json.bind-api-1
+ .0.1.jar http2-client-9.4.15.v20190215.jar jboss-classfilewriter-1.2.4.
+ Final.jar jersey-cdi1x-2.28.jar jakarta.json-1.1.5.jar org.eclipse.pers
+ istence.asm-2.7.4.jar cdi-api-2.0.jar jersey-container-servlet-2.28.jar
+  kumuluzee-servlet-jetty-3.5.0.jar jetty-alpn-java-server-9.4.15.v20190
+ 215.jar http2-hpack-9.4.15.v20190215.jar jackson-jaxrs-json-provider-2.
+ 9.9.jar jakarta.annotation-api-1.3.4.jar validation-api-2.0.1.Final.jar
+  yasson-1.0.3.jar hk2-api-2.5.0.jar jersey-media-json-jackson-2.28.jar 
+ javax.inject-1.jar jetty-jndi-9.4.15.v20190215.jar asm-tree-7.0.jar Hik
+ ariCP-2.7.9.jar org.eclipse.persistence.antlr-2.7.4.jar javax.annotatio
+ n-api-1.3.2.jar http2-common-9.4.15.v20190215.jar kumuluzee-jax-rs-jers
+ ey-3.5.0.jar javax.interceptor-api-1.2.2.jar kumuluzee-rest-core-1.2.3.
+ jar jackson-annotations-2.9.0.jar jetty-security-9.4.15.v20190215.jar j
+ etty-alpn-server-9.4.15.v20190215.jar weld-environment-common-3.1.1.Fin
+ al.jar jackson-jaxrs-base-2.9.9.jar kumuluzee-core-3.5.0.jar org.eclips
+ e.persistence.jpa-2.7.4.jar jersey-hk2-2.28.jar kumuluzee-common-3.5.0.
+ jar jetty-servlet-9.4.15.v20190215.jar jersey-media-json-processing-2.2
+ 8.jar jboss-logging-3.3.2.Final.jar jersey-client-2.28.jar jetty-alpn-j
+ ava-client-9.4.15.v20190215.jar jersey-jetty-connector-2.28.jar weld-js
+ f-3.1.1.Final.jar javax.persistence-api-2.2.jar jetty-alpn-client-9.4.1
+ 5.v20190215.jar kumuluzee-cdi-weld-3.5.0.jar jackson-core-2.9.9.jar jet
+ ty-webapp-9.4.15.v20190215.jar jersey-server-2.28.jar weld-api-3.1.Fina
+ l.jar jboss-annotations-api_1.3_spec-1.0.0.Final.jar javax.activation-a
+ pi-1.2.0.jar org.eclipse.persistence.jpa.jpql-2.7.4.jar jakarta.inject-
+ 2.5.0.jar jersey-media-jaxb-2.28.jar asm-commons-7.0.jar weld-probe-cor
+ e-3.1.1.Final.jar org.eclipse.persistence.core-2.7.4.jar javassist-3.24
+ .1-GA.jar hk2-locator-2.5.0.jar javax.servlet-api-3.1.0.jar jetty-io-9.
+ 4.15.v20190215.jar jandex-2.1.1.Final.jar asm-analysis-7.0.jar jakarta.
+ ws.rs-api-2.1.5.jar jackson-databind-2.9.9.jar http2-http-client-transp
+ ort-9.4.15.v20190215.jar jetty-util-9.4.15.v20190215.jar jetty-server-9
+ .4.15.v20190215.jar jetty-client-9.4.15.v20190215.jar javax.el-api-3.0.
+ 0.jar jersey-media-sse-2.28.jar jakarta.json-api-1.1.5.jar javax.transa
+ ction-api-1.3.jar jersey-container-servlet-core-2.28.jar jsonp-jaxrs-1.
+ 1.5.jar weld-spi-3.1.Final.jar weld-servlet-core-3.1.1.Final.jar jetty-
+ annotations-9.4.15.v20190215.jar kumuluzee-json-p-jsonp-3.5.0.jar kumul
+ uzee-jpa-eclipselink-3.5.0.jar weld-core-impl-3.1.1.Final.jar
+
