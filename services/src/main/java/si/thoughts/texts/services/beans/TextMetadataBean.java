@@ -42,7 +42,6 @@ public class TextMetadataBean {
         baseUrl = "http://localhost:8081"; // only for demonstration
     }
 
-
     public List<TextMetadata> getTextMetadata() {
 
         TypedQuery<TextMetadataEntity> query = em.createNamedQuery("TextMetadataEntity.getAll",
