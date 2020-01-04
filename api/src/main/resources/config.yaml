@@ -1,5 +1,5 @@
 kumuluzee:
-  name: texts
+  name: texts-service
   env:
     name: dev
   version: 1.0.0
@@ -9,7 +9,16 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/TextMetadataDS
-      connection-url: jdbc:postgresql://192.168.144.130:5432/text-metadata
+      connection-url: jdbc:postgresql://192.168.144.132:5432/text-metadata
       username: dbuser
       password: postgres
       max-pool-size: 20
+  config:
+    etcd:
+      hosts: http://192.168.29.109:2379
+  discovery:
+    etcd:
+      hosts: http://192.168.29.109:2379
+configuration-properties:
+  comments-service:
+    enabled: true

@@ -1,13 +1,15 @@
 package si.thoughts.texts.services.beans;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.thoughts.texts.lib.TextMetadata;
 import si.thoughts.texts.models.converters.TextMetadataConverter;
 import si.thoughts.texts.models.entities.TextMetadataEntity;
+import si.thoughts.texts.services.config.IntegrationProperties;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -20,11 +22,12 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
-@ApplicationScoped
+@RequestScoped
 public class TextMetadataBean {
 
     private Logger log = Logger.getLogger(TextMetadataBean.class.getName());
@@ -34,12 +37,17 @@ public class TextMetadataBean {
 
     private Client httpClient;
 
-    private String baseUrl;
+    @Inject
+    @DiscoverService("comments-service")
+    private Optional<String> baseUrl;
+
+    @Inject
+    private IntegrationProperties integrationProperties;
 
     @PostConstruct
     private void init() {
         httpClient = ClientBuilder.newClient();
-        baseUrl = "http://localhost:8081"; // only for demonstration
+        //baseUrl = "http://localhost:8081"; // only for demonstration
     }
 
     public List<TextMetadata> getTextMetadata() {
@@ -100,7 +108,7 @@ public class TextMetadataBean {
             return null;
         }
 
-        TextMetadataEntity updatedTextMetadataEntity = new TextMetadataEntity();
+        TextMetadataEntity updatedTextMetadataEntity = TextMetadataConverter.toEntity(textMetadata);
 
         try {
             beginTx();

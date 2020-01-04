@@ -7,7 +7,8 @@ import java.time.Instant;
 @Table(name = "text_metadata")
 @NamedQueries(value =
         {
-                @NamedQuery(name = "TextMetadataEntity.getAll", query = "SELECT txt FROM TextMetadataEntity txt")
+                @NamedQuery(name = "TextMetadataEntity.getAll",
+                        query = "SELECT txt FROM TextMetadataEntity txt")
         })
 public class TextMetadataEntity {
 

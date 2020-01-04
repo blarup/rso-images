@@ -35,6 +35,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.kumuluz.ee.discovery</groupId>
+            <artifactId>kumuluzee-discovery-etcd</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>si.thoughts</groupId>
             <artifactId>texts-models</artifactId>
         </dependency>
