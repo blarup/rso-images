@@ -1,7 +1,14 @@
-# RSO: Image metadata microservice
+# RSO: Texts microservice
 
-## Prerequisites
+[![Build Status](https://travis-ci.org/blarup/rso-texts.svg?branch=master)](https://travis-ci.org/blarup/rso-texts)
+
+## Locally run with:
 
 ```bash
-docker run -d --name pg-image-metadata -e POSTGRES_USER=dbuser -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=image-metadata -p 5432:5432 postgres:12
+docker-compose up
+```
+
+## For shut down and cleanup:
+```bash
+docker-compose down
 ```
