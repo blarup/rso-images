@@ -47,7 +47,6 @@ public class TextMetadataBean {
     @PostConstruct
     private void init() {
         httpClient = ClientBuilder.newClient();
-        //baseUrl = "http://localhost:8081"; // only for demonstration
     }
 
     public List<TextMetadata> getTextMetadata() {
@@ -148,6 +147,8 @@ public class TextMetadataBean {
         log.info("Calling rating service: getting rating count");
 
         if(baseUrl.isPresent()){
+            log.info("Address of ratings service is: \n");
+            log.info(baseUrl.get());
             try{
                 return httpClient
                         .target(baseUrl.get() + "/v1/ratings/count")
