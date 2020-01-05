@@ -20,5 +20,5 @@ kumuluzee:
     etcd:
       hosts: http://192.168.29.109:2379
 configuration-properties:
-  comments-service:
+  ratings-service:
     enabled: true

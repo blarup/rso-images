@@ -8,15 +8,15 @@ import javax.enterprise.context.ApplicationScoped;
 @ConfigBundle("configuration-properties")
 @ApplicationScoped
 public class IntegrationProperties {
-    @ConfigValue(value = "comments-service.enabled", watch = true)
-    private boolean integrateWithCommentsService;
+    @ConfigValue(value = "ratings-service.enabled", watch = true)
+    private boolean integrateWithRatingsService;
 
-    public boolean isIntegrateWithCommentsService()
+    public boolean isIntegrateWithRatingsService()
     {
-        return integrateWithCommentsService;
+        return integrateWithRatingsService;
     }
 
-    public void setIntegrateWithCommentsService(boolean integrateWithCommentsService){
-        this.integrateWithCommentsService = integrateWithCommentsService;
+    public void setIntegrateWithRatingsService(boolean integrateWithRatingsService){
+        this.integrateWithRatingsService = integrateWithRatingsService;
     }
 }

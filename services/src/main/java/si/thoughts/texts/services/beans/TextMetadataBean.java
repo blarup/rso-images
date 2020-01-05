@@ -38,7 +38,7 @@ public class TextMetadataBean {
     private Client httpClient;
 
     @Inject
-    @DiscoverService("comments-service")
+    @DiscoverService("ratings-service")
     private Optional<String> baseUrl;
 
     @Inject
@@ -77,6 +77,10 @@ public class TextMetadataBean {
         }
 
         TextMetadata textMetadata = TextMetadataConverter.toDto(textMetadataEntity);
+
+        if(integrationProperties.isIntegrateWithRatingsService()){
+            textMetadata.setNumOfRatings(getRatingCount(id));
+        }
 
         return textMetadata;
     }
@@ -140,6 +144,22 @@ public class TextMetadataBean {
         return true;
     }
 
+    public Integer getRatingCount(Integer textId){
+        log.info("Calling rating service: getting rating count");
+
+        if(baseUrl.isPresent()){
+            try{
+                return httpClient
+                        .target(baseUrl.get() + "/v1/ratings/count")
+                        .queryParam("textId", textId)
+                        .request().get(new GenericType<Integer>(){});
+            } catch (WebApplicationException | ProcessingException e){
+                log.severe(e.getMessage());
+                throw new InternalServerErrorException(e);
+            }
+        }
+        return null;
+    }
 
     private void beginTx() {
         if (!em.getTransaction().isActive())

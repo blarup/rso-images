@@ -8,6 +8,7 @@ public class TextMetadata {
     private String title;
     private String description;
     private Instant created;
+    private Integer numOfRatings;
 
     public String getTitle() {
         return title;
@@ -40,4 +41,8 @@ public class TextMetadata {
     public void setTextId(Integer textId) {
         this.textId = textId;
     }
+
+    public Integer getNumOfRatings(){return numOfRatings;}
+
+    public void setNumOfRatings(Integer numOfRatings){this.numOfRatings = numOfRatings;}
 }
