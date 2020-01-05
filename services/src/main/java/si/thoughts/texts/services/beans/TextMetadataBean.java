@@ -152,7 +152,6 @@ public class TextMetadataBean {
             try{
                 return httpClient
                         .target(baseUrl.get() + "/v1/ratings/count")
-                        .queryParam("textId", textId)
                         .request().get(new GenericType<Integer>(){});
             } catch (WebApplicationException | ProcessingException e){
                 log.severe(e.getMessage());
