@@ -1,23 +1,13 @@
 version: "3"
 services:
-  postgres:
-    image: postgres:12
-    #    ports:
-    #      - 5432:5432
-    environment:
-      POSTGRES_USER: dbuser
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: text-metadata
   texts:
     image: blazrupnik/rso-texts:1.0.0-SNAPSHOT
     ports:
       - 8080:8080
     environment:
-      KUMULUZEE_DATASOURCES0_CONNECTIONURL: jdbc:postgresql://postgres:5432/text-metadata
       KUMULUZEE_CONFIG_ETCD_HOSTS: http://etcd:2379
       KUMULUZEE_DISCOVERY_ETCD_HOSTS: http://etcd:2379
     depends_on:
-      - postgres
       - etcd
   etcd:
     image: quay.io/coreos/etcd:latest

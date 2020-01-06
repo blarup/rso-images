@@ -4,8 +4,8 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./api/target/texts-api-1.0.0-SNAPSHOT.jar /app
+ADD ./target/texts-1.0.0-SNAPSHOT.jar /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "texts-api-1.0.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "texts-1.0.0-SNAPSHOT.jar"]

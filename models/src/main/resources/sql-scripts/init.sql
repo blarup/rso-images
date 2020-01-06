@@ -1,1 +1,0 @@
-INSERT INTO text_metadata (title, description, created) VALUES ('Our fist image', 'This is the first image that we created for the RSO course.', TIMESTAMP '2006-01-01 15:36:38');
