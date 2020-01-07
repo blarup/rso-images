@@ -13,10 +13,9 @@ import java.util.List;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-
 @Path("texts")
 @Log
-public class TextResource {
+public class TextsResource {
     @Inject
     private ConfigurationProperties cfg;
 
