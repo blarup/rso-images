@@ -45,6 +45,13 @@ public class TextResource {
         return Response.ok().build();
     }
 
+    @Path("info")
+    @GET
+    public Response getInfo(){
+        String result = cfg.getDbUrl() + " | " + cfg.getDbUser() + " | " + cfg.getDbPassword();
+        return Response.ok(result).build();
+    }
+
     @DELETE
     public Response deleteText(@QueryParam("textId") int textId){
         try (
