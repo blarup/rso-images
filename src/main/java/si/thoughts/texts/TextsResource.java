@@ -95,9 +95,11 @@ public class TextsResource {
         return Response.ok(texts).build();
     }
 
+    /*
     @GET
     @Path("{textId}")
     public Response getAverageRating(@PathParam("textId") int textId){
         return ratingsRestService.getAverageRating(textId);
     }
+     */
 }
