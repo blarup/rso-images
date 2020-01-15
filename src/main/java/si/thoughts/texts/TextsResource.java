@@ -19,12 +19,12 @@ public class TextsResource {
     @Inject
     private ConfigurationProperties cfg;
 
-    @Inject
-    @RestClient
-    private RatingsRestService ratingsRestService;
+    //@Inject
+    //@RestClient
+    //private RatingsRestService ratingsRestService;
 
-    @Inject
-    private CommentsGrpcService commentsGrpcService;
+    //@Inject
+    //private CommentsGrpcService commentsGrpcService;
 
     @POST
     public Response addText(@QueryParam("title") String title,
@@ -59,7 +59,7 @@ public class TextsResource {
         ){
             stmt.executeUpdate("DELETE FROM texts WHERE id = " + textId);
 
-            commentsGrpcService.commentCleanUp(textId);
+            //  commentsGrpcService.commentCleanUp(textId);
 
         }catch (SQLException e){
             System.err.println(e);
