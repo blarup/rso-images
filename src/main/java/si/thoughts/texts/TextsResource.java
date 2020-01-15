@@ -1,7 +1,6 @@
 package si.thoughts.texts;
 
 import com.kumuluz.ee.logs.cdi.Log;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -19,12 +18,31 @@ public class TextsResource {
     @Inject
     private ConfigurationProperties cfg;
 
-    //@Inject
-    //@RestClient
-    //private RatingsRestService ratingsRestService;
+    @GET
+    public Response getTexts(){
+        List<Text> texts = new LinkedList<Text>();
 
-    //@Inject
-    //private CommentsGrpcService commentsGrpcService;
+        try(
+                Connection con = DriverManager.getConnection(cfg.getDbUrl(),cfg.getDbUser(),cfg.getDbPassword());
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM texts");
+        ){
+            while(rs.next()){
+                Text text = new Text();
+                text.setId(rs.getInt(1));
+                text.setTitle(rs.getString(2));
+                text.setContent(rs.getString(3));
+                text.setCreated(rs.getTimestamp(4).toInstant());
+                texts.add(text);
+            }
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return Response.status(Response.Status.FORBIDDEN).build();
+        }
+
+        return Response.ok(texts).build();
+    }
 
     @POST
     public Response addText(@QueryParam("title") String title,
@@ -59,8 +77,6 @@ public class TextsResource {
         ){
             stmt.executeUpdate("DELETE FROM texts WHERE id = " + textId);
 
-            //  commentsGrpcService.commentCleanUp(textId);
-
         }catch (SQLException e){
             System.err.println(e);
             return Response.status(Response.Status.FORBIDDEN).build();
@@ -68,38 +84,4 @@ public class TextsResource {
 
         return Response.ok().build();
     }
-
-    @GET
-    public Response getTexts(){
-        List<Text> texts = new LinkedList<Text>();
-
-        try(
-                Connection con = DriverManager.getConnection(cfg.getDbUrl(),cfg.getDbUser(),cfg.getDbPassword());
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM texts");
-        ){
-            while(rs.next()){
-                Text text = new Text();
-                text.setId(rs.getInt(1));
-                text.setTitle(rs.getString(2));
-                text.setContent(rs.getString(3));
-                text.setCreated(rs.getTimestamp(4).toInstant());
-                texts.add(text);
-            }
-        }
-        catch(SQLException e){
-            System.err.println(e);
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
-
-        return Response.ok(texts).build();
-    }
-
-    /*
-    @GET
-    @Path("{textId}")
-    public Response getAverageRating(@PathParam("textId") int textId){
-        return ratingsRestService.getAverageRating(textId);
-    }
-     */
 }
