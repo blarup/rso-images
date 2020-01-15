@@ -70,14 +70,14 @@
             <version>${kumuluzee-config-mp.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.kumuluz.ee.logs</groupId>
-            <artifactId>kumuluzee-logs-log4j2</artifactId>
-            <version>${kumuluzee-logs.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.kumuluz.ee.metrics</groupId>
             <artifactId>kumuluzee-metrics-core</artifactId>
             <version>${kumuluzee-metrics.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+            <version>${kumuluzee-logs.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -103,5 +103,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

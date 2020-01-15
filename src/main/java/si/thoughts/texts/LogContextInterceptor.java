@@ -1,10 +1,10 @@
 package si.thoughts.texts;
 
-
 import com.kumuluz.ee.common.config.EeConfig;
 import com.kumuluz.ee.common.runtime.EeRuntime;
 import com.kumuluz.ee.logs.cdi.Log;
 import org.apache.logging.log4j.CloseableThreadContext;
+
 import javax.annotation.Priority;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -16,7 +16,6 @@ import java.util.UUID;
 @Interceptor
 @Priority(Interceptor.Priority.PLATFORM_BEFORE)
 public class LogContextInterceptor {
-
     @AroundInvoke
     public Object logMethodEntryAndExit(InvocationContext context) throws Exception {
         HashMap settings = new HashMap();
@@ -27,7 +26,7 @@ public class LogContextInterceptor {
         settings.put("uniqueInstanceId", EeRuntime.getInstance().getInstanceId());
         settings.put("uniqueRequestId", UUID.randomUUID().toString());
 
-        try (final CloseableThreadContext.Instance ctc = CloseableThreadContext.putAll(settings)) {
+        try(final CloseableThreadContext.Instance ctc = CloseableThreadContext.putAll(settings)){
             return context.proceed();
         }
     }

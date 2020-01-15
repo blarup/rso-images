@@ -12,13 +12,13 @@ public class Text {
 
     public void setId(Integer id) {this.id = id;}
 
-    public String getTitle(){return title;}
+    public String getTitle() {
+        return title;
+    }
 
-    public void setTitle(String title){this.title = title;}
-
-    public String getContent(){return content;}
-
-    public void setContent(String content){this.content = content;}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Instant getCreated() {
         return created;
@@ -26,5 +26,13 @@ public class Text {
 
     public void setCreated(Instant created) {
         this.created = created;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

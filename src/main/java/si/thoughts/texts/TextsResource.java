@@ -19,22 +19,30 @@ public class TextsResource {
     private ConfigurationProperties cfg;
 
     @GET
+    @Path("info")
+    public Response getInfo(){
+        String result = "Database url: " + cfg.getDbUrl() + " | "
+                + "User: " + cfg.getDbUser() + " | " + "Password: " +cfg.getDbPassword();
+        return Response.ok(result).build();
+    }
+
+    @GET
     public Response getTexts(){
         List<Text> texts = new LinkedList<Text>();
 
         try(
-                Connection con = DriverManager.getConnection(cfg.getDbUrl(),cfg.getDbUser(),cfg.getDbPassword());
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM texts");
-        ){
-            while(rs.next()){
-                Text text = new Text();
-                text.setId(rs.getInt(1));
-                text.setTitle(rs.getString(2));
-                text.setContent(rs.getString(3));
-                text.setCreated(rs.getTimestamp(4).toInstant());
-                texts.add(text);
-            }
+            Connection con = DriverManager.getConnection(cfg.getDbUrl(),cfg.getDbUser(),cfg.getDbPassword());
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM texts");
+            ){
+                while(rs.next()){
+                    Text text = new Text();
+                    text.setId(rs.getInt(1));
+                    text.setTitle(rs.getString(2));
+                    text.setContent(rs.getString(3));
+                    text.setCreated(rs.getTimestamp(4).toInstant());
+                    texts.add(text);
+                }
         }
         catch(SQLException e){
             System.err.println(e);
@@ -42,31 +50,5 @@ public class TextsResource {
         }
 
         return Response.ok(texts).build();
-    }
-
-    @POST
-    public Response addText(@QueryParam("title") String title,
-                            @QueryParam("content") String content){
-        try (
-                Connection con = DriverManager.getConnection(cfg.getDbUrl(), cfg.getDbUser(), cfg.getDbPassword());
-                Statement stmt = con.createStatement();
-        ) {
-            stmt.executeUpdate("INSERT INTO texts (title, content, created) VALUES ("
-                    + title + ", " + content + ",now())");
-        }
-        catch (SQLException e) {
-            System.err.println(e);
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
-
-        return Response.ok().build();
-    }
-
-    @Path("info")
-    @GET
-    public Response getInfo(){
-        String result = "Database url: " + cfg.getDbUrl() + " | "
-                + "User: " + cfg.getDbUser() + " | " + "Password: " +cfg.getDbPassword();
-        return Response.ok(result).build();
     }
 }
