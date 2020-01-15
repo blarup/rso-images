@@ -1,4 +1,4 @@
-package si.thoughts.texts;
+/*package si.thoughts.texts;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -15,4 +15,4 @@ public interface RatingsRestService {
     @GET
     @Path("average_rating")
     Response getAverageRating(@QueryParam("textId") int textId);
-}
+}*/
