@@ -3,7 +3,7 @@ services:
   texts:
     image: blazrupnik/rso-texts:1.0.0-SNAPSHOT
     ports:
-      - 8080:8080
+      - 8083:8083
     environment:
       KUMULUZEE_CONFIG_ETCD_HOSTS: http://etcd:2379
       KUMULUZEE_DISCOVERY_ETCD_HOSTS: http://etcd:2379
