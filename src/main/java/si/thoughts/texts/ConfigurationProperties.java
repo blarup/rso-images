@@ -40,5 +40,4 @@ public class ConfigurationProperties {
     public void setDbPassword(String dbPassword) {
         this.dbPassword = dbPassword;
     }
-
 }

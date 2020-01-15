@@ -65,23 +65,8 @@ public class TextsResource {
     @Path("info")
     @GET
     public Response getInfo(){
-        String result = cfg.getDbUrl() + " | " + cfg.getDbUser() + " | " + cfg.getDbPassword();
+        String result = "Database url: " + cfg.getDbUrl() + " | "
+                + "User: " + cfg.getDbUser() + " | " + "Password: " +cfg.getDbPassword();
         return Response.ok(result).build();
-    }
-
-    @DELETE
-    public Response deleteText(@QueryParam("textId") int textId){
-        try (
-                Connection con = DriverManager.getConnection(cfg.getDbUrl(), cfg.getDbUser(), cfg.getDbPassword());
-                Statement stmt = con.createStatement();
-        ){
-            stmt.executeUpdate("DELETE FROM texts WHERE id = " + textId);
-
-        }catch (SQLException e){
-            System.err.println(e);
-            return Response.status(Response.Status.FORBIDDEN).build();
-        }
-
-        return Response.ok().build();
     }
 }
